@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ca.audits.model.ClientContacts;
+import com.ca.audits.repo.ClientContactsRepository;
 import com.ca.audits.repo.UserRepository;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/user")
@@ -23,13 +27,31 @@ public class UserController {
 	@Autowired
 	UserRepository userRepo;
 	
+	@Autowired
+	ClientContactsRepository contactsRepo;
+	
 	@PostMapping("/")
-	public String getUserhome(Model model) {
+	public String getUserhome() {
 		log.info(getPrincipal()+" user is at home page");
+		return "redirect:/user/admin";
+	}
+	@GetMapping("/admin")
+	public String getAdmin(Model model) {
+		log.info("inside admin");
 		model.addAttribute("companyname", userRepo.findByEmailId(getPrincipal()).getCompanyname());
 		return "userhome";
 	}
-	
+	@GetMapping("/clientcontacts")
+	public String getclientcontacts(){
+		log.info("getting clientcontacts for "+getPrincipal());
+		return "clientcontacts";
+	}
+	@GetMapping("/getContacts")
+	@ResponseBody
+	public String getContacts() {
+		
+		return new Gson().toJson(contactsRepo.findByClientemail(getPrincipal()));
+	}
 	
 	private String getPrincipal() {
 		String userName = null;

@@ -17,32 +17,42 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <ul class="nav nav-pills nav-stacked sidebar">
-                    <li><span class="glyphicon glyphicon-home"></span></li>
-                    <li class="sidebar-list" id="calllist">
-                        <span class="glyphicon glyphicon-th-list"></span>
-                        <div id="inner-calllist">
-                        
-                        </div>
-                        
-                    </li>
-                    <li><span class="glyphicon glyphicon-envelope"></span></li>
-                    <li><span class="glyphicon glyphicon-home"></span></li>
-                    <li><span class="glyphicon glyphicon-th"></span></li>
-                    <li><span class="glyphicon glyphicon-hourglass"></span></li>
-                    <li><span class="glyphicon glyphicon-bitcoin"></span></li>
-                    <li><span class="glyphicon glyphicon-cog"></span></li>
-                    <li><span class="glyphicon glyphicon-stats"></span></li>
-                    <li><span class="glyphicon glyphicon-list-alt"></span></li>
-                </ul>
+                <div class="sidebar">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="sidebar-list" >
+                            <a href="#" id="calllist"><span class="glyphicon glyphicon-th-list"></span></a>
+                            <ul class="nav nav-pills nav-stacked innerlist">
+                                <li><a href="#"><p>Hello</p></a></li>
+                                <li><a href="#"><p>World</p></a></li>
+                            </ul>            
+                        </li>
+                        <li><a href="clientcontacts"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-hourglass"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-bitcoin"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+                    </ul>
+                </div>
 
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div id="userheader">
-                    <h2 th:inline="text">
-                        [[${companyname}]] <span class="glyphicon glyphicon-user"></span>
+                    <h2 th:inline="text" class="header-user">
+                        [[${companyname}]] &nbsp;&nbsp;&nbsp;&nbsp;
                     </h2>
+                    <div class="dropdown header-user">
+                        
+                        <span class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"></span>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Logout</a></li>
+                          <li><a href="#">Setting</a></li>
+                        </ul>
+                      </div>
                 </div>
 
 

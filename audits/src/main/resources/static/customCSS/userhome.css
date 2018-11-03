@@ -1,33 +1,46 @@
 .glyphicon {
     font-size: 21px;
-    padding-bottom: 11px;
     color: #703cd4;
+    transition: .2s;
 }
-.sidebar :hover .sidebar-list{
-    color: white;
-    background-color: #703cd4;
-}
-
 #userheader {
     float: right;
+    margin-right: 45px;
 }
 .sidebar {
     margin-top: 20px;
-    margin-left: 8px;
+    width: 133px;
+    margin-left: -15px;
 }
-.dropdown {
-    position: relative;
+.innerlist{
+    display: none;
+    position: absolute;
+    left: 127px;
+    top: 0px;
+    z-index: 1;
+    width: 133px;
+    transition: 2s;
+}
+.sidebar-list:hover .innerlist{
     display: inline-block;
 }
-.sidebar-dropdown{
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin-left: 29px;
-    margin-top: -32px;
-} 
-/* .sidebar-list:hover .sidebar-dropdown {
-    display: block;
-} */
+.sidebar ul li a:hover  {
+    background-color: black !important;
+}
+.sidebar ul li:hover .glyphicon{
+    padding-left: 88px;
+}
+.sidebar ul li ul li{
+    background-color: #337ab7 !important;
+    height: 30px;
+}
+.header-user{
+    display: inline-block;
+}
+.dropdown-menu{
+    left: -60px;
+    min-width: 90px;
+}
+
+
+
