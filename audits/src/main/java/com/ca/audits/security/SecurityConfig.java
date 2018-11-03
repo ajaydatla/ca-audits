@@ -63,13 +63,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements User
 		.failureForwardUrl("/login?error=true")
 		.usernameParameter("email")
 		.passwordParameter("pass")
-		.successForwardUrl("/home");
+		.successForwardUrl("/user/");
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("useree: 0"+username);
-		User user = userRepo.findByUserId(username);
+		User user = userRepo.findByEmailId(username);
 		return new UserDetails() {
 			
 			@Override
@@ -79,31 +79,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements User
 			
 			@Override
 			public boolean isCredentialsNonExpired() {
-				// TODO Auto-generated method stub
 				return true;
 			}
 			
 			@Override
 			public boolean isAccountNonLocked() {
-				// TODO Auto-generated method stub
 				return true;
 			}
 			
 			@Override
 			public boolean isAccountNonExpired() {
-				// TODO Auto-generated method stub
 				return true;
 			}
 			
 			@Override
 			public String getUsername() {
-				// TODO Auto-generated method stub
-				return user.getUserId();
+				return user.getEmailId();
 			}
 			
 			@Override
 			public String getPassword() {
-				// TODO Auto-generated method stub
 				return user.getPassword();
 			}
 			

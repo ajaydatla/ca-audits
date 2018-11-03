@@ -1,0 +1,33 @@
+.glyphicon {
+    font-size: 21px;
+    padding-bottom: 11px;
+    color: #703cd4;
+}
+.sidebar :hover .sidebar-list{
+    color: white;
+    background-color: #703cd4;
+}
+
+#userheader {
+    float: right;
+}
+.sidebar {
+    margin-top: 20px;
+    margin-left: 8px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.sidebar-dropdown{
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 29px;
+    margin-top: -32px;
+} 
+/* .sidebar-list:hover .sidebar-dropdown {
+    display: block;
+} */

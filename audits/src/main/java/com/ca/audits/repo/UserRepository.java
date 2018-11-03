@@ -1,13 +1,13 @@
 package com.ca.audits.repo;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.ca.audits.model.User;
+import java.lang.String;
+import java.util.List;
 
-@Repository
-public interface UserRepository extends MongoRepository<User, String>  {
+public interface UserRepository extends CrudRepository<User, Integer> {
 	
-	public User findByUserId(String userId);
+	User findByEmailId(String emailid);
 
 }

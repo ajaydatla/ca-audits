@@ -1,8 +1,9 @@
 package com.ca.audits.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +17,8 @@ import com.ca.audits.repo.UserRepository;
 @CrossOrigin
 public class IndexController {
 	
+	private static Logger log = LoggerFactory.getLogger(IndexController.class);
+	
 	@Autowired
 	UserRepository userRepo;
 	
@@ -24,25 +27,24 @@ public class IndexController {
 	
 	@GetMapping("/")
 	public String getIndex() {
-		System.out.println("inside getIndex");
 		/*User user = new User();
-		user.setName("ajay datla");
-		user.setUserId("ajay@gmail.com");
+		user.setEmailId("ajay@gmail.com");
 		user.setPassword(passwordEncoder.encode("ajay"));
-		userRepo.insert(user);*/
-		return "login";
+		user.setName("ajay datla");
+		userRepo.save(user);*/
+		return "home";
 	}
 	
-	@PostMapping("/login")
-	public String getLogin() {
-		System.out.println("inside getLogin");
-		return "login";
+	@GetMapping("/loginpage")
+	public String getLoginpage() {
+		return "loginpage";
 	}
 	
 	@PostMapping("/home")
-	public String userAuth() {
-		System.out.println("inside userAuth");
-		
-		return "index";
+	public String getUserHome() {
+		log.info("user has logged in");
+		return "userhome";
 	}
+	
+	
 }
