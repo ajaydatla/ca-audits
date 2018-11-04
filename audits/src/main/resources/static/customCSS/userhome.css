@@ -1,4 +1,4 @@
-.glyphicon {
+.sidebaricon {
     font-size: 21px;
     color: #703cd4;
     transition: .2s;
@@ -15,31 +15,55 @@
 .innerlist{
     display: none;
     position: absolute;
-    left: 127px;
+    left: 135px;
     top: 0px;
     z-index: 1;
-    width: 133px;
-    transition: 2s;
+    width: 233px;
 }
-.sidebar-list:hover .innerlist{
+.sidebar:hover .innerlist{
     display: inline-block;
 }
-.sidebar ul li a:hover  {
+.sidebar-list a:hover  {
     background-color: black !important;
 }
-.sidebar ul li:hover .glyphicon{
+.sidebar ul li a:hover .sidebaricon{
     padding-left: 88px;
+    color: blanchedalmond;
 }
 .sidebar ul li ul li{
     background-color: #337ab7 !important;
-    height: 30px;
+    border-radius: 3px;
+}
+.innerlist li a{
+    color: blanchedalmond;
+    height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .header-user{
     display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .dropdown-menu{
     left: -60px;
     min-width: 90px;
+}
+.nested-list{
+    display: none;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    left: 234px;
+    width: 233px;
+}
+.innerlist li:hover .nested-list{
+    display: inline-block;
+}
+.contacttablehead{
+    float: left;
+    margin-top: 83px;
+}
+.contacttablehead tbody tr td{
+    font-family: cursive
 }
 
 

@@ -9,55 +9,113 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/customJS/userhome.js"></script>
     <link rel="stylesheet" href="/customCSS/userhome.css">
 </head>
 
-<body>
+<body ng-app="myApp">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-1">
                 <div class="sidebar">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li class="sidebar-list" >
-                            <a href="#" id="calllist"><span class="glyphicon glyphicon-th-list"></span></a>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-home"></span></a></li>
+                        <li class="sidebar-list">
+                            <a href="#" id="calllist"><span class="sidebaricon glyphicon glyphicon-th-list"></span></a>
                             <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#"><p>Hello</p></a></li>
-                                <li><a href="#"><p>World</p></a></li>
-                            </ul>            
+                                <li><a href="#">GST<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                        <li><a href="#">GSTR 3B</a></li>
+                                        <li><a href="#">GSTR 1</a></li>
+                                        <li><a href="#">GSTR 4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">INCOME TAX<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                        <li><a href="#">RETURN FILING</a></li>
+                                        <li><a href="#" style="font-size:12px;padding-top: 3px;">Refund Matters / Demand
+                                                Matters / Defective Return Notices</a></li>
+                                        <li><a href="#">Non Filing of Return Notices</a></li>
+                                        <li><a href="#">15G/H</a></li>
+                                        <li><a href="#">Income Tax Notice</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">AUDIT<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                            <li><a href="#">TAX AUDIT</a></li>
+                                            <li><a href="#">SCHOOL AUDIT</a></li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">TDS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                            <li><a href="#">TDS Return Filing</a></li>
+                                            <li><a href="#">Correction Returns</a></li>
+                                            <li><a href="#">Default Corrections</a></li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">MISCELLANEOUS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                            <li><a href="#">Deed Writing</a></li>
+                                            <li><a href="#">Certificates</a></li>
+                                            <li><a href="#">PAN / TAN</a></li>
+                                            <li><a href="#">Digital Signature</a></li>
+                                            <li><a href="#">Projection</a></li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">FINANCE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                    <ul class="nav nav-pills nav-stacked nested-list">
+                                            <li><a href="#">PROJECT REPORT</a></li>
+                                            <li><a href="#">CMA</a></li>
+                                            <li><a href="#">PROPOSAL</a></li>
+                                        </ul>
+                                </li>
+                            </ul>
                         </li>
-                        <li><a href="clientcontacts"><span class="glyphicon glyphicon-envelope"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-th"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-hourglass"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-bitcoin"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-stats"></span></a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+                        <li class="sidebar-list"><a href="#!clientcontacts"><span class="sidebaricon glyphicon glyphicon-envelope"></span></a>
+                            <ul class="nav nav-pills nav-stacked innerlist">
+                                    <li><a href="#">ADD/VIEW CONTACT</a></li>
+                                    <li><a href="#" style="font-size:12px;padding-top: 3px;">ADD/VIEW PHONE BOOK CATEGORY</a></li>
+                                <li><a href="#">MANAGE TEMPLATE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a></li>
+                                <li><a href="#">CREATE LIST</a></li>
+                                <li><a href="#">VIEW LIST</a></li>
+                                <li><a href="#">SMS GENERATOR</a></li>
+                                <li><a href="#">EMAIL-LOG</a></li>
+                                <li><a href="#">SMS-LOG</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-list"><a href="#"><i class="fa fa-inr sidebaricon"></i></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-th"></span></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-hourglass"></span></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-bitcoin"></span></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-cog"></span></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-stats"></span></a></li>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-list-alt"></span></a></li>
                     </ul>
                 </div>
 
             </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
+            <div class="col-md-11">
                 <div id="userheader">
                     <h2 th:inline="text" class="header-user">
                         [[${companyname}]] &nbsp;&nbsp;&nbsp;&nbsp;
                     </h2>
                     <div class="dropdown header-user">
-                        
+
                         <span class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"></span>
                         <ul class="dropdown-menu">
-                          <li><a href="#">Logout</a></li>
-                          <li><a href="#">Setting</a></li>
+                            <li><a href="#">Logout</a></li>
+                            <li><a href="#">Setting</a></li>
                         </ul>
-                      </div>
+                    </div>
                 </div>
-
+                <div ng-view class="contacttablehead"></div>
 
             </div>
         </div>
+
     </div>
 </body>
 
