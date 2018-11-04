@@ -9,25 +9,25 @@
 }
 .sidebar {
     margin-top: 20px;
-    width: 133px;
+    width: 72px;
     margin-left: -15px;
 }
 .innerlist{
     display: none;
     position: absolute;
-    left: 135px;
+    left: 73px;
     top: 0px;
     z-index: 1;
-    width: 233px;
+    width: 200px;
 }
-.sidebar:hover .innerlist{
+.sidebar-list:hover .innerlist{
     display: inline-block;
 }
 .sidebar-list a:hover  {
     background-color: black !important;
 }
 .sidebar ul li a:hover .sidebaricon{
-    padding-left: 88px;
+    padding-left: 30px;
     color: blanchedalmond;
 }
 .sidebar ul li ul li{
@@ -52,7 +52,7 @@
     position: absolute;
     top: 0px;
     z-index: 1;
-    left: 234px;
+    left: 201px;
     width: 233px;
 }
 .innerlist li:hover .nested-list{
