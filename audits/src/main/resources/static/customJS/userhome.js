@@ -1,23 +1,59 @@
 var app = angular.module("myApp", ["ngRoute"]);
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
-    
-    .when("/clientcontacts", {
-        templateUrl : "clientcontacts"
-    });
+        .when("/returnfiling", {
+            templateUrl: "returnfiling"
+        })
+        .when("/gstr3b", {
+            templateUrl: "gstr3b"
+        })
+        .when("/clientcontacts", {
+            templateUrl: "clientcontacts"
+        });
 });
-// $(function () {
-//     $(".sidebar-list").mouseenter(function () {
-//         var eid = $(this).attr('id');
-//         console.log("called fddun d ", eid);
-//         var addele = "<ul class='nav nav-pills nav-stacked sidebar-dropdown'>"+
-//         "<li><a href='#'>hello</a></li><li><a href='#'>world</a></li></ul>";
-//         $("#inner-" + eid).append(addele);
-//         $("#inner-" + eid).show();
-//     });
-//     $(".sidebar-list").mouseleave(function () {
-//         var eid = $(this).attr('id');
-//         $("#inner-" + eid).empty();
-//     });
-// });
+function deletecontact(contactid) {
+    console.log(contactid);
+    var res = confirm("Are you sure you want to delete this contact?");
+    console.log("res ", res);
+    if (res) {
+        console.log('inside ajax');
+        $.ajax({
+            type: "DELETE",
+            url: "deleteContact/" + contactid,
+            dataType: 'text',
+            success: function (response) {
+                console.log(response);
+                window.location.reload();
+            }
+        });
+    }
+
+}
+function addcontact(){
+    alert('you want to add new contact');
+    var formVal = $('form').serializeArray();
+    console.log(formVal);
+    var formjson = '{';
+    for(var i = 0; i < formVal.length; i++){
+        if(formVal[i].value == ""){
+            alert(formVal[i].name+' cannot be empty');
+            return;
+        }
+        formjson +='"' +formVal[i].name +'":"'+formVal[i].value+'"';
+        if(i != formVal.length-1) formjson+=",";
+    }
+    formjson += "}";
+    console.log(formjson);
+    $.ajax({
+        type: "POST",
+        url: "addNewContact",
+        data: JSON.parse(formjson),
+        dataType: 'text',
+        success: function (response) {
+            console.log('success');
+            window.location.reload();
+        }
+    });
+}
+
 

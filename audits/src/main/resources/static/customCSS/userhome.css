@@ -65,6 +65,49 @@
 .contacttablehead tbody tr td{
     font-family: cursive
 }
+#header-partition{
+    margin-top: 65px;
+}
+.return-filing-header{
+    display: inline;
+}
+#rf-menu{
+    float: right;
+    font-family: monospace;
+}
+#return-filing-header-menu{
+    margin-bottom: 25px;
+}
+.rf-cardone{
+    border-radius: 4px;
+    background-color: #337ab7;
+    
+}
+.rf-cardone a{
+    color: aliceblue;
+    padding-left: 11px;
+    font-size: 13px;
+    font-family: cursive;
+}
+.rf-cardone-coll{
+    border: 1px;
+} 
+.contacts-table{
+    background-color: #337ab7;
+}
+.contacts-table th {
+    color: white;
+    font-family: monospace;
+}
+#ac-newcontact> div:first-child > h4{
+    background-color: #337ab7;
+    color: azure;
+    height: 40px;
+    padding: 10px;
+}
+#ac-newcontact .form-control{
+    border-radius: 1px;
+}
 
 
 

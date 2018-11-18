@@ -1,5 +1,6 @@
 package com.ca.audits.model;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,7 @@ public class ClientContacts {
 	private String email; 
 	private String category;
 	private String address;
+	@Column(name="clientemail", nullable=false)
 	private String clientemail;
 
 	

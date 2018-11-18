@@ -1,0 +1,29 @@
+.gst-head{
+    display: inline;
+}
+#gst-headlist{
+    float: right;
+}
+.gst-task-card{
+    background-color: #703cd4;
+    border-radius: 3px;
+}
+.gst-task-card a{
+    color: white;
+    font-size: 15px;
+    font-family: monospace;
+}
+.gst-task-card p{
+    text-align: right;
+    padding-right: 25px;
+}
+.gst-col-one{
+    background-color: aqua;
+}
+.colbutton{
+    width: 100%;
+    border-radius: 0px;
+    background-color: #703cd4;
+    text-align: left;
+    font-family: monospace;
+}

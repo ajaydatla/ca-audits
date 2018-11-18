@@ -1,48 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="row">
+    <div class="col-md-8">
+        <h3>Client Contacts</h3>
+        <table class="table table-bordered">
+            <thead class="contacts-table">
+                <tr>
+                    <th>Contact Name</th>
+                    <th>Contact Number</th>
+                    <th>Category Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="contacttable">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="col-md-3" id="ac-newcontact">
+        <div>
+            <h4>Add Contact</h4>
+        </div>
+        <form action="#">
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label for="Number">Contact Number</label>
+                <input type="number" class="form-control" name="number">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label for="email">Category Name:</label>
+                <select name="category" class="form-control">
+                    <option value="GST Regular">GST Regular</option>
+                    <option value="Income Tax">Income Tax</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Address:</label>
+                <input type="text" class="form-control" name="address">
+            </div><br>
+            <button type="button" class="btn btn-default" onclick="addcontact()">Submit</button>
+        </form>
+    </div>
+    <div class="col-md-1"></div>
+</div>
 
-<body>
-    <h3>Client Contacts</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Contact Name</th>
-                <th>Contact Number</th>
-                <th>Category Name</th>
-                <th>Email</th>
-                <th>Address</th>
-            </tr>
-        </thead>
-        <tbody id="contacttable">
-
-        </tbody>
-    </table>
-    <script>
-        $.ajax({
-            type: "GET",
-            url: "getContacts",
-            success: function (response) {
-                response = JSON.parse(response);
-                console.log(response);
-                console.log(response[0].name);
-                for (let index = 0; index < response.length; index++) {
-                    var contacts = "<tr><td>" + response[index].name + "</td>" +
-                        "<td>" + response[index].number + "</td><td>" + response[index].category + "</td><td>" + response[index].email + "</td><td>" + response[index].address + "</td></tr>";
-                    $("#contacttable").append(contacts);
-                }
+<script>
+    $.ajax({
+        type: "GET",
+        url: "getContacts",
+        success: function (response) {
+            response = JSON.parse(response);
+            console.log(response);
+            console.log(response[0].name);
+            for (let index = 0; index < response.length; index++) {
+                var contacts = "<tr><td><kbd>" + response[index].name + "</kbd></td>" +
+                    "<td><kbd>" + response[index].number + "</kbd></td><td><kbd>" + response[index].category + "</kbd></td><td><kbd>" + response[index].email + "</kbd></td><td><kbd>" + response[index].address + "</kbd></td>" +
+                    "<td><button type='button' onclick='editcontact()' class='btn btn-default'><i class='fa fa-edit' style='font-size:24px'></i></button></td><td><button type='button' onclick='deletecontact(" + response[index].contactid + ")' class='btn btn-default'><i class='fa fa-times-rectangle' style='font-size:24px'></i></button></td></tr>";
+                $("#contacttable").append(contacts);
             }
-        });
-    </script>
-</body>
-
-</html>
+        }
+    });
+    function editcontact() {
+        // onclick='editcontact()'
+        var res = confirm("Are you sure you want to edit this contact?");
+        console.log("res ", res);
+    }
+    
+</script>

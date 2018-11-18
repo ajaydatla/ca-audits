@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/customJS/userhome.js"></script>
     <link rel="stylesheet" href="/customCSS/userhome.css">
+    <link rel="stylesheet" href="/customCSS/gstr3b.css">
 </head>
 
 <body ng-app="myApp">
@@ -28,14 +29,14 @@
                             <ul class="nav nav-pills nav-stacked innerlist">
                                 <li><a href="#">GST<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">GSTR 3B</a></li>
+                                        <li><a href="#!gstr3b">GSTR 3B</a></li>
                                         <li><a href="#">GSTR 1</a></li>
                                         <li><a href="#">GSTR 4</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">INCOME TAX<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">RETURN FILING</a></li>
+                                        <li><a href="#!returnfiling">RETURN FILING</a></li>
                                         <li><a href="#" style="font-size:12px;padding-top: 3px;">Refund Matters / Demand
                                                 Matters / Defective Return Notices</a></li>
                                         <li><a href="#">Non Filing of Return Notices</a></li>
@@ -45,38 +46,38 @@
                                 </li>
                                 <li><a href="#">AUDIT<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                            <li><a href="#">TAX AUDIT</a></li>
-                                            <li><a href="#">SCHOOL AUDIT</a></li>
-                                        </ul>
+                                        <li><a href="#">TAX AUDIT</a></li>
+                                        <li><a href="#">SCHOOL AUDIT</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="#">TDS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                            <li><a href="#">TDS Return Filing</a></li>
-                                            <li><a href="#">Correction Returns</a></li>
-                                            <li><a href="#">Default Corrections</a></li>
-                                        </ul>
+                                        <li><a href="#">TDS Return Filing</a></li>
+                                        <li><a href="#">Correction Returns</a></li>
+                                        <li><a href="#">Default Corrections</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="#">MISCELLANEOUS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                            <li><a href="#">Deed Writing</a></li>
-                                            <li><a href="#">Certificates</a></li>
-                                            <li><a href="#">PAN / TAN</a></li>
-                                            <li><a href="#">Digital Signature</a></li>
-                                            <li><a href="#">Projection</a></li>
-                                        </ul>
+                                        <li><a href="#">Deed Writing</a></li>
+                                        <li><a href="#">Certificates</a></li>
+                                        <li><a href="#">PAN / TAN</a></li>
+                                        <li><a href="#">Digital Signature</a></li>
+                                        <li><a href="#">Projection</a></li>
+                                    </ul>
                                 </li>
                                 <li><a href="#">FINANCE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                            <li><a href="#">PROJECT REPORT</a></li>
-                                            <li><a href="#">CMA</a></li>
-                                            <li><a href="#">PROPOSAL</a></li>
-                                        </ul>
+                                        <li><a href="#">PROJECT REPORT</a></li>
+                                        <li><a href="#">CMA</a></li>
+                                        <li><a href="#">PROPOSAL</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-list"><a href="#!clientcontacts"><span class="sidebaricon glyphicon glyphicon-envelope"></span></a>
+                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-envelope"></span></a>
                             <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#" style="font-size:12px;">ADD/VIEW CONTACT</a></li>
+                                <li><a href="#!clientcontacts" style="font-size:12px;">ADD/VIEW CONTACT</a></li>
                                 <li><a href="#" style="font-size:12px;padding-top: 3px;">ADD/VIEW PHONE BOOK CATEGORY</a></li>
                                 <li><a href="#">MANAGE TEMPLATE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
@@ -132,7 +133,7 @@
                                         <li><a href="#">BILL SUMMARY</a></li>
                                         <li><a href="#">RECEIPT SUMMARY</a></li>
                                     </ul>
-                                   
+
                                 </li>
                                 <li><a href="#">BILLING DASHBOARD</a></li>
                                 <li><a href="#">VIEW ACCOUNTS</a></li>
@@ -222,20 +223,26 @@
 
             </div>
             <div class="col-md-11">
-                <div id="userheader">
-                    <h2 th:inline="text" class="header-user">
-                        [[${companyname}]] &nbsp;&nbsp;&nbsp;&nbsp;
-                    </h2>
-                    <div class="dropdown header-user">
+                <div>
+                    <div id="userheader">
+                        <h2 th:inline="text" class="header-user"><kbd style="background-color: #3339;">[[${companyname}]] </kbd>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                        </h2>
+                        <div class="dropdown header-user">
 
-                        <span class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"></span>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Logout</a></li>
-                            <li><a href="#">Setting</a></li>
-                        </ul>
+                            <span class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"></span>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Logout</a></li>
+                                <li><a href="#">Setting</a></li>
+                            </ul>
+                        </div>
+
                     </div>
+
                 </div>
-                <div ng-view class="contacttablehead"></div>
+
+                <hr id="header-partition">
+                <div ng-view></div>
 
             </div>
         </div>
