@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="/customCSS/gstr3b.css">
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" >
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1">
-                <div class="sidebar">
-                    <ul class="nav nav-pills nav-stacked">
+                <div class="sidebar" ng-controller="sidebarctrl">
+                    <ul class="nav nav-pills nav-stacked" id="sidebarstack">
                         <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-home"></span></a></li>
                         <li class="sidebar-list">
                             <a href="#" id="calllist"><span class="sidebaricon glyphicon glyphicon-th-list"></span></a>

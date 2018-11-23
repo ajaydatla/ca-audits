@@ -34,10 +34,10 @@ public class UserRestController {
 
 	@DeleteMapping("/deleteContact/{contactid}")
 	@ResponseBody
-	public String deleteContact(@PathVariable String contactid) {
+	public void deleteContact(@PathVariable String contactid) {
 		logger.info("the contact is deleted " + contactid);
 		contactsRepo.deleteById(Integer.parseInt(contactid));
-		return "success";
+//		return "success";
 	}
 
 	private String getPrincipal() {

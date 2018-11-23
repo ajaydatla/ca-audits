@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller='contactsctrl'>
     <div class="col-md-8">
         <h3>Client Contacts</h3>
         <table class="table table-bordered">
@@ -13,8 +13,19 @@
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody id="contacttable">
-
+            <tbody>
+                <tr ng-repeat="contact in allContacts">
+                    <td><kbd>{{contact.name}}</kbd></td>
+                    <td><kbd>{{contact.number}}</kbd></td>
+                    <td><kbd>{{contact.category}}</kbd></td>
+                    <td><kbd>{{contact.email}}</kbd></td>
+                    <td><kbd>{{contact.address}}</kbd></td>
+                    <td><button type='button' ng-click='editcontact()' class='btn btn-default'>
+                        <i class='fa fa-edit' style='font-size:24px'></i>
+                    </button></td>
+                    <td><button type='button' ng-click="deletecontact(contact.contactid)" class='btn btn-default'>
+                        <i class='fa fa-times-rectangle' style='font-size:24px'></i></button></td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -53,26 +64,3 @@
     <div class="col-md-1"></div>
 </div>
 
-<script>
-    $.ajax({
-        type: "GET",
-        url: "getContacts",
-        success: function (response) {
-            response = JSON.parse(response);
-            console.log(response);
-            console.log(response[0].name);
-            for (let index = 0; index < response.length; index++) {
-                var contacts = "<tr><td><kbd>" + response[index].name + "</kbd></td>" +
-                    "<td><kbd>" + response[index].number + "</kbd></td><td><kbd>" + response[index].category + "</kbd></td><td><kbd>" + response[index].email + "</kbd></td><td><kbd>" + response[index].address + "</kbd></td>" +
-                    "<td><button type='button' onclick='editcontact()' class='btn btn-default'><i class='fa fa-edit' style='font-size:24px'></i></button></td><td><button type='button' onclick='deletecontact(" + response[index].contactid + ")' class='btn btn-default'><i class='fa fa-times-rectangle' style='font-size:24px'></i></button></td></tr>";
-                $("#contacttable").append(contacts);
-            }
-        }
-    });
-    function editcontact() {
-        // onclick='editcontact()'
-        var res = confirm("Are you sure you want to edit this contact?");
-        console.log("res ", res);
-    }
-    
-</script>
