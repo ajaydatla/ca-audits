@@ -1,0 +1,36 @@
+<div class="row" ng-controller="gstr3bcompletedtask">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Client Name</th>
+                    <th>File No.</th>
+                    <th>Description</th>
+                    <th>Start Date</th>
+                    <th>Date of completion</th>
+                    <th>Assigned To</th>
+                    <th>Financial Year</th>
+                    <th>Period</th>
+                    <th>Group Name</th>
+                    <th>Task Leader</th>
+                    <th>Completed By</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taskdata in gstr3bcompletedtaskdata">
+                    <td>{{taskdata.clientname}}</td>
+                    <td>{{taskdata.fileno}}</td>
+                    <td>{{taskdata.description}}</td>
+                    <td>{{taskdata.startdate}}</td>
+                    <td>{{taskdata.expecteddateofcompletion}}</td>
+                    <td>{{taskdata.assignedto}}</td>
+                    <td>{{taskdata.financialyear}}</td>
+                    <td>{{taskdata.period}}</td>
+                    <td>{{taskdata.groupname}}</td>
+                    <td>{{taskdata.taskleader}}</td>
+                    <td>{{taskdata.completedby}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

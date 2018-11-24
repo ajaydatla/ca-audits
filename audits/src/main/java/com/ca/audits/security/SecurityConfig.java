@@ -63,7 +63,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements User
 		.failureForwardUrl("/login?error=true")
 		.usernameParameter("email")
 		.passwordParameter("pass")
-		.successForwardUrl("/user/");
+		.successForwardUrl("/user/")
+		.and().logout().logoutUrl("/logout");
 	}
 
 	@Override

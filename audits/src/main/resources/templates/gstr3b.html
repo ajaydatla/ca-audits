@@ -1,4 +1,4 @@
-<div>
+<div style="margin-bottom: 22px;">
     <h3 class="gst-head">GSTR 3B</h3>
     <ul class="nav nav-pills gst-head" id="gst-headlist">
         <li class="nav-item">
@@ -27,7 +27,7 @@
         <div class="card-deck gst-task-card">
             <div class="card">
                 <div class="card-body text-left">
-                    <p class="card-text"><a href="#">COMPLETED TASK</a></p>
+                    <p class="card-text"><a href="#!renderGSTR3BCompletedTask">COMPLETED TASK</a></p>
                     <p class="card-text"><a href="#">PENDING TASK</a></p>
                     <p class="card-text"><a href="#">PRORITY TASK</a></p>
                     <p class="card-text"><a href="#">LONG DUE TASK</a></p>
@@ -61,13 +61,17 @@
         </div>
         
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" id="collapse3-button"> 
         <div>
             <button class="btn btn-primary colbutton" data-target="#collapse3" data-toggle="collapse">Overall tasks at a glance
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-angle-down" style="font-size:18px;color:aliceblue"></i>
+                <i class="fa fa-angle-down" style="font-size:18px;color:aliceblue"></i>
             </button>
             <div id="collapse3" class="collapse gst-col-one">
-                
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CREATE GROUP</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

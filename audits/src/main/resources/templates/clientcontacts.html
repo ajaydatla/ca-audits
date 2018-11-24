@@ -1,6 +1,8 @@
 <div class="row" ng-controller='contactsctrl'>
     <div class="col-md-8">
-        <h3>Client Contacts</h3>
+        <h3 class="same-line-display">Client Contacts</h3>
+        <input type="text" ng-model="searchcontact" placeholder="Search by name or email or number or address" class="form-control same-line-display">
+        <br>
         <table class="table table-bordered">
             <thead class="contacts-table">
                 <tr>
@@ -14,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="contact in allContacts">
+                <tr ng-repeat="contact in allContacts | filter:searchcontact | orderBy:'name'">
                     <td><kbd>{{contact.name}}</kbd></td>
                     <td><kbd>{{contact.number}}</kbd></td>
                     <td><kbd>{{contact.category}}</kbd></td>

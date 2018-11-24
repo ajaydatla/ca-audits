@@ -11,6 +11,8 @@
     margin-top: 20px;
     width: 72px;
     margin-left: -15px;
+    position: fixed;
+    z-index: 5;
 }
 .innerlist{
     display: none;
@@ -107,6 +109,9 @@
 }
 #ac-newcontact .form-control{
     border-radius: 1px;
+}
+.same-line-display{
+    display: inline-block;
 }
 
 

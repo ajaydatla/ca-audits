@@ -5,13 +5,16 @@
     float: right;
 }
 .gst-task-card{
-    background-color: #703cd4;
+    background-color: #58555fd1;
     border-radius: 3px;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
 }
 .gst-task-card a{
     color: white;
-    font-size: 15px;
-    font-family: monospace;
+    font-size: 13px;
+    letter-spacing: 4px;
+    word-spacing: 6px;
+    font-family: auto;
 }
 .gst-task-card p{
     text-align: right;
@@ -23,7 +26,11 @@
 .colbutton{
     width: 100%;
     border-radius: 0px;
-    background-color: #703cd4;
+    background-color: #58555fd1;
     text-align: left;
     font-family: monospace;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+}
+#collapse3-button .colbutton{
+    letter-spacing: 5px;
 }

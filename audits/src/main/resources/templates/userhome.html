@@ -13,207 +13,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/customJS/userhome.js"></script>
+    <script src="/customJS/gstr3bcompletedtask.js"></script>
     <link rel="stylesheet" href="/customCSS/userhome.css">
     <link rel="stylesheet" href="/customCSS/gstr3b.css">
 </head>
 
-<body ng-app="myApp" >
+<body ng-app="myApp">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1">
                 <div class="sidebar" ng-controller="sidebarctrl">
-                    <ul class="nav nav-pills nav-stacked" id="sidebarstack">
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-home"></span></a></li>
+                    <ul class="nav nav-pills nav-stacked" id="sidebarstack" ng-repeat="sidebardata in sidebardatas">
                         <li class="sidebar-list">
-                            <a href="#" id="calllist"><span class="sidebaricon glyphicon glyphicon-th-list"></span></a>
+                            <a href="{{sidebardata.iconlink}}" id="calllist"><span ng-class="sidebardata.iconcssclass"></span></a>
                             <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">GST<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
+                                <li ng-repeat="(headkey,headval) in sidebardata.mainhead"><a href="{{headval.link}}"
+                                        style="{{headval.style}}">{{headkey}}
+                                        <i style="font-size:24px;float: right;" ng-if="headval.subhead" class="fa">&#xf105;</i></a>
                                     <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#!gstr3b">GSTR 3B</a></li>
-                                        <li><a href="#">GSTR 1</a></li>
-                                        <li><a href="#">GSTR 4</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">INCOME TAX<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#!returnfiling">RETURN FILING</a></li>
-                                        <li><a href="#" style="font-size:12px;padding-top: 3px;">Refund Matters / Demand
-                                                Matters / Defective Return Notices</a></li>
-                                        <li><a href="#">Non Filing of Return Notices</a></li>
-                                        <li><a href="#">15G/H</a></li>
-                                        <li><a href="#">Income Tax Notice</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">AUDIT<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">TAX AUDIT</a></li>
-                                        <li><a href="#">SCHOOL AUDIT</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">TDS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">TDS Return Filing</a></li>
-                                        <li><a href="#">Correction Returns</a></li>
-                                        <li><a href="#">Default Corrections</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">MISCELLANEOUS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">Deed Writing</a></li>
-                                        <li><a href="#">Certificates</a></li>
-                                        <li><a href="#">PAN / TAN</a></li>
-                                        <li><a href="#">Digital Signature</a></li>
-                                        <li><a href="#">Projection</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">FINANCE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">PROJECT REPORT</a></li>
-                                        <li><a href="#">CMA</a></li>
-                                        <li><a href="#">PROPOSAL</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-envelope"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#!clientcontacts" style="font-size:12px;">ADD/VIEW CONTACT</a></li>
-                                <li><a href="#" style="font-size:12px;padding-top: 3px;">ADD/VIEW PHONE BOOK CATEGORY</a></li>
-                                <li><a href="#">MANAGE TEMPLATE<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">GENERATE TEMPLATE</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">CREATE LIST</a></li>
-                                <li><a href="#">VIEW LIST</a></li>
-                                <li><a href="#">SMS GENERATOR</a></li>
-                                <li><a href="#">EMAIL-LOG</a></li>
-                                <li><a href="#">SMS-LOG</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><i class="fa fa-inr sidebaricon"></i></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">BILLING SETTINGS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">MANAGE ORGANIZATION</a></li>
-                                        <li><a href="#">MANAGE ACCOUNTS</a></li>
-                                        <li><a href="#">MANAGE RECEIPT BOOKS</a></li>
-                                        <li><a href="#">MANAGE TAX</a></li>
-                                        <li><a href="#">NARRATIN, NOTES & SAC</a></li>
-                                        <li><a href="#" style="font-size:12px;">CONFIGURE AUTO RECEIPT NO</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">OPENING BILLING</a></li>
-                                <li><a href="#">BILLS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#" style="font-size:13px">GENERATE INDIVIDUAL BILLS</a></li>
-                                        <li><a href="#" style="font-size:12px">GENERATE BILL WITHOUT TASK</a></li>
-                                        <li><a href="#">GENERATE COMBINE BILLS</a></li>
-                                        <li><a href="#">DELETE BILLS</a></li>
-                                        <li><a href="#">MULTIPLE SERVICES BILL</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">RECEIPTS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">IND. RECEIPT</a></li>
-                                        <li><a href="#">GROUP RECEIPTS</a></li>
-                                        <li><a href="#" style="font-size:10px">ADVANCE/DIRECT INVOICE & RECEIPT</a></li>
-                                        <li><a href="#" style="font-size:13px">SETTLING ADVANCE RECEIPT</a></li>
-                                        <li><a href="#">DELETE RECEIPTS</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">REPORTS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">FREE TASK REPORT</a></li>
-                                        <li><a href="#">UNBILLED TASK REPORT</a></li>
-                                        <li><a href="#">BILL REGISTER</a></li>
-                                        <li><a href="#">RECEIPT REGISTER</a></li>
-                                        <li><a href="#">SEARCH BILLS</a></li>
-                                        <li><a href="#">SEARCH COLLECTION</a></li>
-                                        <li><a href="#">BILL SUMMARY</a></li>
-                                        <li><a href="#">RECEIPT SUMMARY</a></li>
-                                    </ul>
-
-                                </li>
-                                <li><a href="#">BILLING DASHBOARD</a></li>
-                                <li><a href="#">VIEW ACCOUNTS</a></li>
-                                <li><a href="#">MARK THE TASK FREE</a></li>
-                                <li><a href="#">BILLING</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-th"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">NOTICE BOARD<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#" style="font-size:11px">CREATE NOTICE BOARD MESSAGE</a></li>
-                                        <li><a href="#">CREATED BY ME</a></li>
-                                        <li><a href="#">POSTED FOR ME</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">LEAVE MANAGEMENT<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#" style="font-size:11px">LEAVES PENDING FOR APPROVAL</a></li>
-                                        <li><a href="#">STAFF LEAVE DASHBOARD</a></li>
-                                        <li><a href="#">MODIFY LEAVE BALANCES</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#" style="font-size:10px">DIGITAL SIGNATURE REGISTER</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-hourglass"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">SHOW ALL</a></li>
-                                <li><a href="#">ATTACH A DOCUMENT</a></li>
-                                <li><a href="#">ATTACHED BY ME</a></li>
-                                <li><a href="#">ATTACHED FOR ME</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-bitcoin"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">CREATE DOCUMENT</a></li>
-                                <li><a href="#">CREATED BY ME</a></li>
-                                <li><a href="#">SHARED TO ME</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-cog"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">TASK SETTINGS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">CLIENT LIST</a></li>
-                                        <li><a href="#">MANAGE TYPES</a></li>
-                                        <li><a href="#">MANAGE CATEGORIES</a></li>
-                                        <li><a href="#">GROUP MASTER</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">USER MANAGEMENT</a></li>
-                                <li><a href="#">CHECK CONTROLS</a></li>
-                                <li><a href="#" style="font-size: 11px;">AUTO SMS CONFIGURATION</a></li>
-                                <li><a href="#">MANAGE CHECKS<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#">MANAGE TASK CHECKS</a></li>
-                                        <li><a href="#">MANAGE CHECK GROUPS</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">IMPORT MASTERS</a></li>
-                                <li><a href="#">BULK TASK CREATION</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-stats"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">BULK TASK LOG</a></li>
-                                <li><a href="#">REPORT DASHBOARD</a></li>
-                                <li><a href="#">EMPLOYEE REPORT</a></li>
-                                <li><a href="#" style="font-size:12px; padding-top:2px;">WORK PROCESS REVENUE REPORT</a></li>
-                                <li><a href="#" style="font-size: 13px;">CONSOLIDATED REPORT</a></li>
-                            </ul>
-                        </li>
-                        <li class="sidebar-list"><a href="#"><span class="sidebaricon glyphicon glyphicon-list-alt"></span></a>
-                            <ul class="nav nav-pills nav-stacked innerlist">
-                                <li><a href="#">INWARD-REGISTER</a></li>
-                                <li><a href="#">SETTING<i style="font-size:24px;float: right;" class="fa">&#xf105;</i></a>
-                                    <ul class="nav nav-pills nav-stacked nested-list">
-                                        <li><a href="#" style="font-size: 14px;padding-top: 2px;">CREATE/EDIT INWARD REGISTER</a></li>
-                                        <li><a href="#" style="font-size: 14px;padding-top: 2px;">DOCUMENT NATURE & THROUGH</a></li>
+                                        <li ng-repeat="(subheadkey, subheadval) in headval.subhead"><a href="{{subheadval.link}}" style="{{subheadval.style}}">{{subheadkey}}</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -225,14 +43,15 @@
             <div class="col-md-11">
                 <div>
                     <div id="userheader">
-                        <h2 th:inline="text" class="header-user"><kbd style="background-color: #3339;">[[${companyname}]] </kbd>
+                        <h2 th:inline="text" class="header-user"><kbd style="background-color: #3339;">[[${companyname}]]
+                            </kbd>
                             &nbsp;&nbsp;&nbsp;&nbsp;
                         </h2>
                         <div class="dropdown header-user">
 
                             <span class="glyphicon glyphicon-user dropdown-toggle" data-toggle="dropdown"></span>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Logout</a></li>
+                                <li><a href="../logout">Logout</a></li>
                                 <li><a href="#">Setting</a></li>
                             </ul>
                         </div>
@@ -248,6 +67,7 @@
         </div>
 
     </div>
+
 </body>
 
 </html>

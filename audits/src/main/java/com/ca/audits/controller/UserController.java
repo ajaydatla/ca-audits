@@ -52,17 +52,15 @@ public class UserController {
 		log.info("getting gstr3b for "+getPrincipal());
 		return "gstr3b";
 	}
-	@GetMapping("/getContacts")
-	@ResponseBody
-	public String getContacts() {
-		
-		return new Gson().toJson(contactsRepo.findByClientemail(getPrincipal()));
-	}
 	
 	@GetMapping("/returnfiling")
 	public String getReturnfiling() {
 		log.info("getting returnfiling");
 		return "returnfiling";
+	}
+	@GetMapping("renderGSTR3BCompletedTask")
+	public String renderGSTR3BCompletedTask() {
+		return "gstr3bcompletedtask";
 	}
 	
 	private String getPrincipal() {
